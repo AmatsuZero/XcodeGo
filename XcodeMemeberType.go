@@ -23,8 +23,10 @@ const (
 	XCVersionGroupType
 )
 
-func (t XcodeMemberType) String() string {
-	return [...]string{
+var memberTypeReference []string
+
+func init() {
+	memberTypeReference = append(memberTypeReference,
 		"PBXNilType",
 		"PBXBuildFile",
 		"PBXContainerItemProxy",
@@ -42,6 +44,9 @@ func (t XcodeMemberType) String() string {
 		"PBXVariantGroup",
 		"XCBuildConfiguration",
 		"XCConfigurationList",
-		"XCVersionGroup",
-	}[t]
+		"XCVersionGroup")
+}
+
+func (t XcodeMemberType) String() string {
+	return memberTypeReference[t]
 }

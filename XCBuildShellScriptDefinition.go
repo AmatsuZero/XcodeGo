@@ -12,10 +12,6 @@ type XCBuildShellScriptDefinition struct {
 	ShellPath                          string
 }
 
-func (x *XCBuildShellScriptDefinition) build() {
-	x.FileOperationType = XCFileOperationTypeReferenceOnly
-}
-
 func NewXCBuildShellScriptDefinition(name string, runOnlyForDeploymentPostprocessing bool, shellScript string) XCBuildShellScriptDefinition {
 	return XCBuildShellScriptDefinition{
 		XCAbstractDefinition:               XCAbstractDefinition{XCFileOperationTypeOverwrite},
