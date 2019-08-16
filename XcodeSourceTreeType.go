@@ -7,7 +7,7 @@ const (
 	SourceTreeGroup
 )
 
-func (t XcodeSourceTreeType) String() string  {
+func (t XcodeSourceTreeType) String() string {
 	return [...]string{
 		"SDKROOT",
 		"<group>",

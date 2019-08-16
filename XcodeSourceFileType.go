@@ -33,7 +33,7 @@ const (
 	LocalizableStrings
 )
 
-var xcfileReferenceTypes = map[string]XcodeSourceFileType {
+var xcfileReferenceTypes = map[string]XcodeSourceFileType{
 	"sourcecode.c.h":              SourceCodeHeader,
 	"sourcecode.c.objc":           SourceCodeObjc,
 	"wrapper.framework":           Framework,
@@ -56,28 +56,32 @@ var xcfileReferenceTypes = map[string]XcodeSourceFileType {
 	"net.daringfireball.markdown": Markdown,
 	"text.plist.xml":              XMLPropertyList,
 	"file.storyboard":             Storyboard,
-	"text.xcconfig": XCConfig,
-	"wrapper.xcconfig": XCConfig,
-	"wrapper.xcdatamodel": XCDataModel,
-	"file.strings": LocalizableStrings,
+	"text.xcconfig":               XCConfig,
+	"wrapper.xcconfig":            XCConfig,
+	"wrapper.xcdatamodel":         XCDataModel,
+	"file.strings":                LocalizableStrings,
 }
 
-func XCSourceFileTypeeFromStringRepresentation(s string) XcodeSourceFileType  {
-	if fileType, ok := xcfileReferenceTypes[s]; ok {
+func XCSourceFileTypeeFromStringRepresentation(presentation string) XcodeSourceFileType {
+	if fileType, ok := xcfileReferenceTypes[presentation]; ok {
 		return fileType
 	} else {
 		return FileTypeNil
 	}
 }
 
-func XCSourceFileTypeFromFileName(fileName string) XcodeSourceFileType  {
+func XCSourceFileTypeFromFileName(fileName string) XcodeSourceFileType {
 	switch path.Ext(fileName) {
-	case ".h": fallthrough
-	case ".hh": fallthrough
-	case ".hpp": fallthrough
+	case ".h":
+		fallthrough
+	case ".hh":
+		fallthrough
+	case ".hpp":
+		fallthrough
 	case ".hxx":
 		return SourceCodeHeader
-	case ".c": fallthrough
+	case ".c":
+		fallthrough
 	case ".m":
 		return SourceCodeObjc
 	case ".mm":
@@ -96,4 +100,3 @@ func XCSourceFileTypeFromFileName(fileName string) XcodeSourceFileType  {
 		return FileTypeNil
 	}
 }
-
