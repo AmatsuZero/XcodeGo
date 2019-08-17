@@ -7,9 +7,13 @@ const (
 	SourceTreeGroup
 )
 
-var sourceTreeTypeReference = [...]string{
-	"SDKROOT",
-	"<group>",
+var sourceTreeTypeReference []string
+
+func init() {
+	sourceTreeTypeReference = []string{
+		"SDKROOT",
+		"<group>",
+	}
 }
 
 func (t XcodeSourceTreeType) String() string {

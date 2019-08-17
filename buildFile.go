@@ -1,6 +1,6 @@
 package XcodeGo
 
-type XCBuildFile interface {
+type BuildFile interface {
 	BecomeBuildFile()
 	BuildPhase() XcodeMemberType
 	BuildFileKey() string

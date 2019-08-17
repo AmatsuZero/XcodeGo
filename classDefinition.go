@@ -8,7 +8,7 @@ const (
 	CPlusPlus
 )
 
-type XCClassDefinition struct {
+type ClassDefinition struct {
 	XCAbstractDefinition
 	ClassName string
 	Header    string
@@ -16,42 +16,38 @@ type XCClassDefinition struct {
 	language  ClassDefinitionLanguage
 }
 
-func NewClassDefinitionWithName(className string) XCClassDefinition {
-	return XCClassDefinition{
-		XCAbstractDefinition: XCAbstractDefinition{XCFileOperationTypeOverwrite},
-		ClassName:            className,
-		language:             ObjectiveC,
-	}
-}
-
-func NewClassDefinition(className string, language ClassDefinitionLanguage) XCClassDefinition {
-	return XCClassDefinition{
+func NewClassDefinition(className string, language ClassDefinitionLanguage) ClassDefinition {
+	return ClassDefinition{
 		XCAbstractDefinition: XCAbstractDefinition{XCFileOperationTypeOverwrite},
 		ClassName:            className,
 		language:             language,
 	}
 }
 
-func (t XCClassDefinition) IsObjectiveC() bool {
+func NewObjCClassDefinitionWithName(className string) ClassDefinition {
+	return NewClassDefinition(className, ObjectiveC)
+}
+
+func (t ClassDefinition) IsObjectiveC() bool {
 	return t.language == ObjectiveC
 }
 
-func (t XCClassDefinition) IsCPlusPlus() bool {
+func (t ClassDefinition) IsCPlusPlus() bool {
 	return t.language == CPlusPlus
 }
 
-func (t XCClassDefinition) IsObjectiveCPlusPlus() bool {
+func (t ClassDefinition) IsObjectiveCPlusPlus() bool {
 	return t.language == ObjectiveCPlusPlus
 }
 
-func (t XCClassDefinition) HeaderFileName() string {
+func (t ClassDefinition) HeaderFileName() string {
 	if len(t.ClassName) == 0 {
 		return ""
 	}
 	return t.ClassName + ".h"
 }
 
-func (t XCClassDefinition) SourceFileName() (sourceFileName string) {
+func (t ClassDefinition) SourceFileName() (sourceFileName string) {
 	if t.IsObjectiveC() {
 		sourceFileName = t.ClassName + ".m"
 	} else if t.IsObjectiveCPlusPlus() {

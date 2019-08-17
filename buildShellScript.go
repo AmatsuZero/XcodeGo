@@ -1,6 +1,6 @@
 package XcodeGo
 
-type XCBuildShellScript struct {
+type BuildShellScript struct {
 	Key                                string
 	Name                               string
 	RunOnlyForDeploymentPostprocessing bool

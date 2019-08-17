@@ -1,5 +1,0 @@
-package XcodeGo
-
-func isEmoji() {
-
-}

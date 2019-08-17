@@ -62,7 +62,7 @@ var xcfileReferenceTypes = map[string]XcodeSourceFileType{
 	"file.strings":                LocalizableStrings,
 }
 
-func XCSourceFileTypeeFromStringRepresentation(presentation string) XcodeSourceFileType {
+func SourceFileTypeeFromStringRepresentation(presentation string) XcodeSourceFileType {
 	if fileType, ok := xcfileReferenceTypes[presentation]; ok {
 		return fileType
 	} else {
@@ -70,7 +70,7 @@ func XCSourceFileTypeeFromStringRepresentation(presentation string) XcodeSourceF
 	}
 }
 
-func XCSourceFileTypeFromFileName(fileName string) XcodeSourceFileType {
+func SourceFileTypeFromFileName(fileName string) XcodeSourceFileType {
 	switch path.Ext(fileName) {
 	case ".h":
 		fallthrough

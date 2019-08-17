@@ -1,6 +1,8 @@
 package XcodeGo
 
-type XCBuildShellScriptDefinition struct {
+import "./Utils"
+
+type BuildShellScriptDefinition struct {
 	XCAbstractDefinition
 	Key                                string
 	Files                              []string
@@ -12,13 +14,13 @@ type XCBuildShellScriptDefinition struct {
 	ShellPath                          string
 }
 
-func NewXCBuildShellScriptDefinition(name string, runOnlyForDeploymentPostprocessing bool, shellScript string) XCBuildShellScriptDefinition {
-	return XCBuildShellScriptDefinition{
+func NewBuildShellScriptDefinition(name string, runOnlyForDeploymentPostprocessing bool, shellScript string) BuildShellScriptDefinition {
+	return BuildShellScriptDefinition{
 		XCAbstractDefinition:               XCAbstractDefinition{XCFileOperationTypeOverwrite},
 		Files:                              []string{},
 		InputPaths:                         []string{},
 		OutPutPaths:                        []string{},
-		Name:                               name,
+		Name:                               Utils.FilterEmoji(name),
 		RunOnlyForDeploymentPostprocessing: runOnlyForDeploymentPostprocessing,
 		ShellScript:                        shellScript,
 		ShellPath:                          "/bin/sh",
