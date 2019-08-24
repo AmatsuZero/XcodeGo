@@ -7,32 +7,32 @@ type XcodeTarget struct {
 	ProductReference string
 	ProductType      string
 
-	members           []BuildFile
-	resources         []SourceFile
-	buildShellScripts []BuildShellScript
+	members           []*BuildFile
+	resources         []*SourceFile
+	buildShellScripts []*BuildShellScript
 }
 
-func (x XcodeTarget) Resources() []SourceFile {
+func (x XcodeTarget) Resources() []*SourceFile {
 	return x.resources
 }
 
-func (x XcodeTarget) Members() []BuildFile {
+func (x XcodeTarget) Members() []*BuildFile {
 	return x.members
 }
 
-func (x XcodeTarget) BuildShellScripts() []BuildShellScript {
+func (x XcodeTarget) BuildShellScripts() []*BuildShellScript {
 	return x.buildShellScripts
 }
 
-func (x XcodeTarget) Configurations() map[string]XcodeBuildConfig {
+func (x XcodeTarget) Configurations() map[string]ProjectBuildConfig {
 
 }
 
-func (x XcodeTarget) ConfigurationWithName(name string) XcodeBuildConfig {
+func (x XcodeTarget) ConfigurationWithName(name string) *ProjectBuildConfig {
 
 }
 
-func (x XcodeTarget) DefaultConfiguration() XcodeBuildConfig {
+func (x XcodeTarget) DefaultConfiguration() *ProjectBuildConfig {
 
 }
 
@@ -64,7 +64,7 @@ func (x *XcodeTarget) AddDependency(key string) {
 
 }
 
-func (x XcodeTarget) DuplicateWithTargetNameAndProductName(target string, product string) XcodeTarget {
+func (x XcodeTarget) DuplicateWithTargetNameAndProductName(target string, product string) *XcodeTarget {
 
 }
 

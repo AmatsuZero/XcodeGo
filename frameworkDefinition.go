@@ -11,15 +11,15 @@ type XCFrameworkDefinition struct {
 	SourceTree        XcodeSourceTreeType
 }
 
-func NewFrameworkDefinition(filePath string, copyToDestination bool, sourceTree XcodeSourceTreeType) XCFrameworkDefinition {
-	return XCFrameworkDefinition{
+func NewFrameworkDefinition(filePath string, copyToDestination bool, sourceTree XcodeSourceTreeType) *XCFrameworkDefinition {
+	return &XCFrameworkDefinition{
 		FilePath:          filePath,
 		CopyToDestination: copyToDestination,
 		SourceTree:        sourceTree,
 	}
 }
 
-func NewGroupTypeFrameworkDefinition(filePath string, copyToDestination bool) XCFrameworkDefinition {
+func NewGroupTypeFrameworkDefinition(filePath string, copyToDestination bool) *XCFrameworkDefinition {
 	return NewFrameworkDefinition(filePath, copyToDestination, SourceTreeGroup)
 }
 

@@ -14,8 +14,8 @@ type FileOperationQueue struct {
 	directoriesToCreate []string
 }
 
-func NewXCFileOperationQueueWithBaseDirectory(baseDirectory string) FileOperationQueue {
-	return FileOperationQueue{
+func NewXCFileOperationQueueWithBaseDirectory(baseDirectory string) *FileOperationQueue {
+	return &FileOperationQueue{
 		baseDirectory: baseDirectory,
 	}
 }

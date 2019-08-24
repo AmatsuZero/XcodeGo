@@ -2,8 +2,8 @@ package Utils
 
 import (
 	"crypto/md5"
+	"fmt"
 	"github.com/satori/go.uuid"
-	"golang.org/x/tools/go/ssa/interp/testdata/src/fmt"
 )
 
 type KeyBuilder struct {

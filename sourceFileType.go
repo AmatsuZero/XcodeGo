@@ -72,17 +72,9 @@ func SourceFileTypeeFromStringRepresentation(presentation string) XcodeSourceFil
 
 func SourceFileTypeFromFileName(fileName string) XcodeSourceFileType {
 	switch path.Ext(fileName) {
-	case ".h":
-		fallthrough
-	case ".hh":
-		fallthrough
-	case ".hpp":
-		fallthrough
-	case ".hxx":
+	case ".h", ".hh", ".hpp", ".hxx":
 		return SourceCodeHeader
-	case ".c":
-		fallthrough
-	case ".m":
+	case ".c", ".m":
 		return SourceCodeObjc
 	case ".mm":
 		return SourceCodeObjCPlusPlus

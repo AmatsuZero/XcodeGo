@@ -16,15 +16,15 @@ type ClassDefinition struct {
 	language  ClassDefinitionLanguage
 }
 
-func NewClassDefinition(className string, language ClassDefinitionLanguage) ClassDefinition {
-	return ClassDefinition{
+func NewClassDefinition(className string, language ClassDefinitionLanguage) *ClassDefinition {
+	return &ClassDefinition{
 		XCAbstractDefinition: XCAbstractDefinition{XCFileOperationTypeOverwrite},
 		ClassName:            className,
 		language:             language,
 	}
 }
 
-func NewObjCClassDefinitionWithName(className string) ClassDefinition {
+func NewObjCClassDefinitionWithName(className string) *ClassDefinition {
 	return NewClassDefinition(className, ObjectiveC)
 }
 

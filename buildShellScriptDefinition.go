@@ -14,8 +14,8 @@ type BuildShellScriptDefinition struct {
 	ShellPath                          string
 }
 
-func NewBuildShellScriptDefinition(name string, runOnlyForDeploymentPostprocessing bool, shellScript string) BuildShellScriptDefinition {
-	return BuildShellScriptDefinition{
+func NewBuildShellScriptDefinition(name string, runOnlyForDeploymentPostprocessing bool, shellScript string) *BuildShellScriptDefinition {
+	return &BuildShellScriptDefinition{
 		XCAbstractDefinition:               XCAbstractDefinition{XCFileOperationTypeOverwrite},
 		Files:                              []string{},
 		InputPaths:                         []string{},
